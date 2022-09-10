@@ -17,3 +17,6 @@
 # CDK asset staging directory
 .cdk.staging
 cdk.out
+
+cmd/build/*
+!cmd/build/.gitkeep
