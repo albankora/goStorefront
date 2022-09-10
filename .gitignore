@@ -20,3 +20,5 @@ cdk.out
 
 cmd/build/*
 !cmd/build/.gitkeep
+
+.DS_Store
