@@ -12,12 +12,12 @@ type LambdaCommerceStackProps struct {
 }
 
 func NewLambdaCommerceStack(scope constructs.Construct, id string, props *LambdaCommerceStackProps) awscdk.Stack {
-	var sprops awscdk.StackProps
+	var sProps awscdk.StackProps
 	if props != nil {
-		sprops = props.StackProps
+		sProps = props.StackProps
 	}
 
-	stack := awscdk.NewStack(scope, &id, &sprops)
+	stack := awscdk.NewStack(scope, &id, &sProps)
 
 	lambdaCommerce := awslambda.NewFunction(stack, jsii.String("lambdaCommerce"), &awslambda.FunctionProps{
 		Code:    awslambda.NewAssetCode(jsii.String("./cmd/build"), nil),
