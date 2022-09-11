@@ -1,4 +1,4 @@
-module lambda_commerce
+module lambdacommerce
 
 go 1.16
 
