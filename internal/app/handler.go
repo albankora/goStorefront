@@ -2,6 +2,8 @@ package app
 
 import (
 	"fmt"
+
+	"lambdacommerce/internal/pages"
 	"lambdacommerce/pkg/router"
 	"net/url"
 )
@@ -15,8 +17,6 @@ type Request struct {
 func HandleRequest(request Request) (router.Response, error) {
 	fmt.Printf("Body size = %d.\n", len(request.Body))
 
-	fmt.Println("Headers:")
-
 	u, err := url.Parse(request.Path)
 	if err != nil {
 		return router.EmptyResponse(), err
@@ -24,5 +24,13 @@ func HandleRequest(request Request) (router.Response, error) {
 
 	fmt.Println(u.Path)
 
-	return router.Route(u.Path), nil
+	routes := map[string]interface{}{
+		"/":     pages.Index,
+		"/list": pages.List,
+		"404":   pages.NoFound,
+	}
+
+	response, _ := router.Route(u.Path, routes)
+
+	return response, nil
 }
