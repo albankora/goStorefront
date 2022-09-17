@@ -1,4 +1,4 @@
-module lambdacommerce
+module lambdastorefront
 
 go 1.16
 

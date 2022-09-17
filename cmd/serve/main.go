@@ -2,7 +2,7 @@ package main
 
 import (
 	"io/ioutil"
-	"lambdacommerce/internal/app"
+	"lambdastorefront/internal/app"
 	"log"
 	"net/http"
 )

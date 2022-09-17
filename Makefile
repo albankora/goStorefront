@@ -24,12 +24,7 @@ build:
 zip:
 	zip -Xr lambdaHandler.zip lambdaHandler resources
 
-clean:
-	rm lambdaHandler.zip lambdaHandler
-
-deploy: lint fmt build zip cdkdeploy clean
-
-cdkdeploy:
+deploy: lint fmt build zip
 	cdk deploy --profile dev
 
 destroy:

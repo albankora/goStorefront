@@ -1,8 +1,8 @@
 package pages
 
 import (
-	"lambdacommerce/pkg/router"
-	"lambdacommerce/pkg/view"
+	"lambdastorefront/pkg/router"
+	"lambdastorefront/pkg/view"
 )
 
 type IndexViewData struct {

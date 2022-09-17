@@ -3,7 +3,7 @@
         "awscdk",
         "awslambda",
         "jsii",
-        "lambdacommerce"
+        "Storefront"
     ],
     "go.lintOnSave": "file",
     "go.formatTool": "goimports",

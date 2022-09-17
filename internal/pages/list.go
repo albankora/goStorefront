@@ -2,7 +2,7 @@ package pages
 
 import (
 	"fmt"
-	"lambdacommerce/pkg/router"
+	"lambdastorefront/pkg/router"
 )
 
 func List() (router.Response, error) {

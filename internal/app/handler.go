@@ -3,8 +3,8 @@ package app
 import (
 	"fmt"
 
-	"lambdacommerce/internal/pages"
-	"lambdacommerce/pkg/router"
+	"lambdastorefront/internal/pages"
+	"lambdastorefront/pkg/router"
 	"net/url"
 )
 
