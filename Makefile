@@ -1,7 +1,4 @@
-.PHONY: build synth diff deploy fmt lint destroy
-
-build: 
-	cd cmd && GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o build/lambdaHandler lambda/main.go && zip -X build/lambdaHandler.zip build/lambdaHandler && cd ..
+.PHONY: build synth diff deploy zip clean fmt lint destroy
 
 start:
 	go run ./cmd/serve/main.go
@@ -15,14 +12,25 @@ synth:
 diff:
 	cdk diff --profile dev
 
-deploy: lint fmt build
-	cdk deploy --profile dev
-
 fmt:
 	go fmt ./...
 
 lint:
 	go vet ./...
+	
+build: 
+	GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o lambdaHandler cmd/lambda/main.go && cd ..
+
+zip:
+	zip -Xr lambdaHandler.zip lambdaHandler resources
+
+clean:
+	rm lambdaHandler.zip lambdaHandler
+
+deploy: lint fmt build zip cdkdeploy clean
+
+cdkdeploy:
+	cdk deploy --profile dev
 
 destroy:
 	cdk destroy --profile dev

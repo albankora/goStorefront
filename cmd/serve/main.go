@@ -21,8 +21,9 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		Method: r.Method,
 	})
 
+	log.Println("Body: " + response.Body)
 	w.WriteHeader(response.StatusCode)
-	w.Header().Set("Content-Type", "application/text")
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	w.Write([]byte(response.Body))
 }
 

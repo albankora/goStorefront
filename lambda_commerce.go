@@ -20,7 +20,7 @@ func NewLambdaCommerceStack(scope constructs.Construct, id string, props *Lambda
 	stack := awscdk.NewStack(scope, &id, &sProps)
 
 	lambdaCommerce := awslambda.NewFunction(stack, jsii.String("lambdaCommerce"), &awslambda.FunctionProps{
-		Code:    awslambda.NewAssetCode(jsii.String("./cmd/build"), nil),
+		Code:    awslambda.NewAssetCode(jsii.String("./lambdaHandler.zip"), nil),
 		Handler: jsii.String("lambdaHandler"),
 		Timeout: awscdk.Duration_Seconds(jsii.Number(300)),
 		Runtime: awslambda.Runtime_GO_1_X(),

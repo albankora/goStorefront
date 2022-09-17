@@ -18,7 +18,7 @@
 .cdk.staging
 cdk.out
 
-cmd/build/*
-!cmd/build/.gitkeep
+lambdaHandler
+lambdaHandler.zip
 
 .DS_Store

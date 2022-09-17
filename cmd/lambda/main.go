@@ -14,7 +14,8 @@ func handler(ctx context.Context, request events.LambdaFunctionURLRequest) (even
 		Path:   request.RequestContext.HTTP.Path,
 		Method: request.RequestContext.HTTP.Method,
 	})
-	return events.LambdaFunctionURLResponse{Body: response.Body, StatusCode: response.StatusCode}, nil
+	headers := map[string]string{"Content-Type": "text/html; charset=utf-8"}
+	return events.LambdaFunctionURLResponse{Body: response.Body, StatusCode: response.StatusCode, Headers: headers}, nil
 }
 
 func main() {
