@@ -2,8 +2,9 @@
     "cSpell.words": [
         "awscdk",
         "awslambda",
+        "gostorefront",
         "jsii",
-        "Storefront"
+        "storefront"
     ],
     "go.lintOnSave": "file",
     "go.formatTool": "goimports",

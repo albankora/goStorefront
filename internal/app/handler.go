@@ -3,8 +3,8 @@ package app
 import (
 	"fmt"
 
-	"lambdastorefront/internal/pages"
-	"lambdastorefront/pkg/router"
+	"gostorefront/internal/pages"
+	"gostorefront/pkg/router"
 	"net/url"
 )
 
@@ -25,9 +25,10 @@ func HandleRequest(request Request) (router.Response, error) {
 	fmt.Println(u.Path)
 
 	routes := map[string]interface{}{
-		"/":     pages.Index,
-		"/list": pages.List,
-		"404":   pages.NoFound,
+		"/":         pages.Index,
+		"/list":     pages.List,
+		"/category": pages.Category,
+		"404":       pages.NoFound,
 	}
 
 	response, _ := router.Route(u.Path, routes)

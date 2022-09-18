@@ -5,13 +5,13 @@ import (
 	"gostorefront/pkg/view"
 )
 
-type ListViewData struct {
+type CategoryViewData struct {
 	Title string
 }
 
-func List() (router.Response, error) {
-	data := ListViewData{Title: "Product list"}
-	body, err := view.Load("list", data)
+func Category() (router.Response, error) {
+	data := CategoryViewData{Title: "Category"}
+	body, err := view.Load("category", data)
 	if err != nil {
 		return router.EmptyResponse(), nil
 	}

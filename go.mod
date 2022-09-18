@@ -1,4 +1,4 @@
-module lambdastorefront
+module gostorefront
 
 go 1.16
 

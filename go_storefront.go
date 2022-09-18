@@ -7,11 +7,11 @@ import (
 	"github.com/aws/jsii-runtime-go"
 )
 
-type LambdaStorefrontStackProps struct {
+type GoStorefrontStackProps struct {
 	awscdk.StackProps
 }
 
-func NewLambdaStorefrontStack(scope constructs.Construct, id string, props *LambdaStorefrontStackProps) awscdk.Stack {
+func NewGoStorefrontStack(scope constructs.Construct, id string, props *GoStorefrontStackProps) awscdk.Stack {
 	var sProps awscdk.StackProps
 	if props != nil {
 		sProps = props.StackProps
@@ -19,7 +19,7 @@ func NewLambdaStorefrontStack(scope constructs.Construct, id string, props *Lamb
 
 	stack := awscdk.NewStack(scope, &id, &sProps)
 
-	LambdaStorefront := awslambda.NewFunction(stack, jsii.String("LambdaStorefront"), &awslambda.FunctionProps{
+	GoStorefront := awslambda.NewFunction(stack, jsii.String("GoStorefront"), &awslambda.FunctionProps{
 		Code:    awslambda.NewAssetCode(jsii.String("./lambdaHandler.zip"), nil),
 		Handler: jsii.String("lambdaHandler"),
 		Timeout: awscdk.Duration_Seconds(jsii.Number(300)),
@@ -30,7 +30,7 @@ func NewLambdaStorefrontStack(scope constructs.Construct, id string, props *Lamb
 		AuthType: awslambda.FunctionUrlAuthType_NONE,
 	}
 
-	fnUrl := LambdaStorefront.AddFunctionUrl(functionUrlOptions)
+	fnUrl := GoStorefront.AddFunctionUrl(functionUrlOptions)
 
 	cfnOutputProps := &awscdk.CfnOutputProps{
 		Value: fnUrl.Url(),
@@ -44,7 +44,7 @@ func NewLambdaStorefrontStack(scope constructs.Construct, id string, props *Lamb
 func main() {
 	app := awscdk.NewApp(nil)
 
-	NewLambdaStorefrontStack(app, "LambdaStorefrontStack", &LambdaStorefrontStackProps{
+	NewGoStorefrontStack(app, "GoStorefrontStack", &GoStorefrontStackProps{
 		awscdk.StackProps{
 			Env: env(),
 		},

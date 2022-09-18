@@ -4,26 +4,17 @@ import (
 	"bytes"
 	"html/template"
 	"log"
-	"os"
 )
 
-func Load(data interface{}, view string, layout string) (string, error) {
+func Load(view string, data interface{}) (string, error) {
 	file := "resources/views/" + view + ".html"
-	if _, err := os.Stat(file); err != nil {
-		log.Fatal(err)
-		return "", err
-	}
+	layout := "resources/layouts/base.html"
+	nav := "resources/partials/nav.html"
 
-	layoutFile := "resources/layouts/" + layout + ".html"
-	if _, err := os.Stat(layoutFile); err != nil {
-		log.Fatal(err)
-		return "", err
-	}
-
-	t, _ := template.ParseFiles(file, layoutFile)
+	t, _ := template.ParseFiles(file, layout, nav)
 
 	var html bytes.Buffer
-	if err := t.ExecuteTemplate(&html, layout, data); err != nil {
+	if err := t.ExecuteTemplate(&html, "base", data); err != nil {
 		log.Fatal(err)
 		return "", err
 	}

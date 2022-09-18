@@ -1,18 +1,17 @@
 package pages
 
 import (
-	"lambdastorefront/pkg/router"
-	"lambdastorefront/pkg/view"
+	"gostorefront/pkg/router"
+	"gostorefront/pkg/view"
 )
 
 type IndexViewData struct {
-	Name     string
-	Greeting string
+	Title string
 }
 
 func Index() (router.Response, error) {
-	data := IndexViewData{Name: "Astaxie", Greeting: "Hello"}
-	body, err := view.Load(data, "index", "base")
+	data := IndexViewData{Title: "Product Overviews"}
+	body, err := view.Load("index", data)
 	if err != nil {
 		return router.EmptyResponse(), nil
 	}

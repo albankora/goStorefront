@@ -1,8 +1,8 @@
 package main
 
 import (
+	"gostorefront/internal/app"
 	"io/ioutil"
-	"lambdastorefront/internal/app"
 	"log"
 	"net/http"
 )

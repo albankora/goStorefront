@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"lambdastorefront/internal/app"
+	"gostorefront/internal/app"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
