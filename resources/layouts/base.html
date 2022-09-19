@@ -1,18 +1,13 @@
 {{define "base"}}
 <!doctype html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
+<html lang="{{.Head.Lang}}">
+{{template "head" .}}
 <body>
     {{template "nav" .}}
     <div class="relative mx-auto w-full max-w-container px-4 sm:px-6 lg:px-8">
         {{template "content" .}}
     </div>
+    {{template "footer" .}}
 </body>
 
 </html>{{end}}

@@ -21,7 +21,6 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		Method: r.Method,
 	})
 
-	log.Println("Body: " + response.Body)
 	w.WriteHeader(response.StatusCode)
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	w.Write([]byte(response.Body))
@@ -33,7 +32,7 @@ func main() {
 		handler(w, r)
 	})
 
-	log.Print("Starting server on :4000")
+	log.Print("Starting server on http://localhost:4000")
 	err := http.ListenAndServe(":4000", mux)
 	log.Fatal(err)
 }

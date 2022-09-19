@@ -1,7 +1,7 @@
 .PHONY: build synth diff deploy zip clean fmt lint destroy
 
 start:
-	go run ./cmd/serve/main.go
+	nodemon -e go,json,html --exec go run ./cmd/serve/main.go --signal SIGTERM
 
 bootstrap:
 	cdk bootstrap --profile dev

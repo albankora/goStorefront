@@ -1,12 +1,14 @@
-# Welcome to your CDK Go project!
+# GoStorefront
+A storefront for the headless world
 
-This is a blank project for CDK development with Go.
+# Local Dev
 
-The `cdk.json` file tells the CDK toolkit how to execute your app.
+Install nodemon globally
+```bash
+npm install -g nodemon
+```
 
-## Useful commands
-
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk synth`       emits the synthesized CloudFormation template
- * `go test`         run unit tests
+To run the application
+```bash
+make start
+```

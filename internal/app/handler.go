@@ -15,8 +15,6 @@ type Request struct {
 }
 
 func HandleRequest(request Request) (router.Response, error) {
-	fmt.Printf("Body size = %d.\n", len(request.Body))
-
 	u, err := url.Parse(request.Path)
 	if err != nil {
 		return router.EmptyResponse(), err
