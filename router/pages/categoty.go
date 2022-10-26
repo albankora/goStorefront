@@ -1,16 +1,15 @@
 package pages
 
 import (
+	"gostorefront/bridge"
 	"gostorefront/pkg/response"
 	"gostorefront/pkg/ui"
 )
 
-type CategoryViewData struct {
-	Title string
-}
-
 func Category() (response.Response, error) {
-	data := CategoryViewData{Title: "Category"}
+
+	b := bridge.Setup()
+	data := b.Category()
 	body, err := ui.Load("category", data)
 
 	if err != nil {

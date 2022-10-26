@@ -1,24 +1,14 @@
 package pages
 
 import (
+	"gostorefront/bridge"
 	"gostorefront/pkg/response"
 	"gostorefront/pkg/ui"
 )
 
-type IndexViewData struct {
-	Head  ui.Head
-	Title string
-}
-
 func Index() (response.Response, error) {
-	data := IndexViewData{
-		Title: "Product Overviews",
-		Head: ui.Head{
-			Lang:            "en",
-			PageTitle:       "Product Overviews",
-			MetaDescription: "Product Overviews Meta",
-		},
-	}
+	b := bridge.Setup()
+	data := b.Index()
 	body, err := ui.Load("index", data)
 	if err != nil {
 		return response.EmptyResponse(), err
