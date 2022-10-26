@@ -1,4 +1,4 @@
-package view
+package ui
 
 import (
 	"bytes"
@@ -13,11 +13,11 @@ type Head struct {
 }
 
 func Load(view string, data interface{}) (string, error) {
-	file := "resources/views/" + view + ".html"
-	layout := "resources/layouts/base.html"
-	nav := "resources/partials/nav.html"
-	footer := "resources/partials/footer.html"
-	head := "resources/partials/head.html"
+	file := "ui/pages/" + view + ".html"
+	layout := "ui/layouts/base.html"
+	nav := "ui/partials/nav.html"
+	footer := "ui/partials/footer.html"
+	head := "ui/partials/head.html"
 
 	t, _ := template.ParseFiles(file, layout, nav, footer, head)
 
