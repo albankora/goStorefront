@@ -2,20 +2,20 @@ package main
 
 import (
 	"gostorefront/app"
-	"io/ioutil"
+	"io"
 	"log"
 	"net/http"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	body, err := ioutil.ReadAll(r.Body)
+	body, err := io.ReadAll(r.Body)
 	if err != nil {
 		log.Printf("Error reading body: %v", err)
 		http.Error(w, "can't read body", http.StatusBadRequest)
 		return
 	}
 
-	response, _ := app.HandleRequest(app.Request{
+	response := app.HandleRequest(app.Request{
 		Body:   string(body),
 		Path:   r.URL.Path,
 		Method: r.Method,

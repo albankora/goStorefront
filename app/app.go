@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"gostorefront/pkg/response"
-	"gostorefront/router"
+	"gostorefront/routes"
 	"net/url"
 )
 
@@ -14,15 +14,15 @@ type Request struct {
 	Method string
 }
 
-func HandleRequest(request Request) (response.Response, error) {
+func HandleRequest(request Request) response.Response {
 	u, err := url.Parse(request.Path)
 	if err != nil {
-		return response.EmptyResponse(), err
+		return response.InternalServerError()
 	}
 
 	fmt.Println(u.Path)
 
-	response, _ := router.Route(u.Path)
+	response := routes.Handle(u.Path)
 
-	return response, nil
+	return response
 }

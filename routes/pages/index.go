@@ -24,8 +24,9 @@ func Index() (response.Response, error) {
 	}
 
 	body, err := ui.Load("index", data)
+
 	if err != nil {
-		return response.EmptyResponse(), err
+		return response.InternalServerError(), err
 	}
 
 	return response.Response{Body: body, StatusCode: 200}, nil

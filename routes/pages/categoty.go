@@ -18,7 +18,7 @@ func Category() (response.Response, error) {
 	body, err := ui.Load("category", data)
 
 	if err != nil {
-		return response.EmptyResponse(), err
+		return response.InternalServerError(), err
 	}
 
 	return response.Response{Body: body, StatusCode: 200}, err
