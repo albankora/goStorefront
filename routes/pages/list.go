@@ -1,8 +1,8 @@
 package pages
 
 import (
+	"gostorefront/internal/ui"
 	"gostorefront/pkg/response"
-	"gostorefront/pkg/ui"
 )
 
 type ListViewData struct {

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"gostorefront/app"
+	"gostorefront/internal/app"
 	"io"
 	"log"
 	"net/http"

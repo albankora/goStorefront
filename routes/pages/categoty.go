@@ -2,8 +2,8 @@ package pages
 
 import (
 	"gostorefront/bridges"
+	"gostorefront/internal/ui"
 	"gostorefront/pkg/response"
-	"gostorefront/pkg/ui"
 )
 
 type CategoryPageData struct {
