@@ -2,7 +2,6 @@ package bridge
 
 import (
 	"fmt"
-	"gostorefront/pkg/ui"
 )
 
 type Crystallize struct {
@@ -65,17 +64,18 @@ func (c Crystallize) PaymentMethods() {
 	fmt.Println(c.name)
 }
 
-func (c Crystallize) Index() IndexData {
-	return IndexData{
-		Title: "Product Overviews",
-		Head: ui.Head{
-			Lang:            "en",
-			PageTitle:       "Product Overviews",
-			MetaDescription: "Product Overviews Meta",
-		},
-	}
+func (c Crystallize) Category() {
+	fmt.Println(c.name)
 }
 
-func (c Crystallize) Category() CategoryData {
-	return CategoryData{Title: "Category"}
+func (c Crystallize) AddDeliveryOptions() {
+	fmt.Println(c.name)
+}
+
+func (c Crystallize) GetDeliveryOptions() {
+	fmt.Println(c.name)
+}
+
+func (c Crystallize) GetPaymentMethods() {
+	fmt.Println(c.name)
 }

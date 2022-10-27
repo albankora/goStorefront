@@ -6,9 +6,23 @@ import (
 	"gostorefront/pkg/ui"
 )
 
+type IndexPageData struct {
+	Head  ui.Head
+	Title string
+}
+
 func Index() (response.Response, error) {
-	b := bridge.Setup()
-	data := b.Index()
+	b := bridge.ContentSetup()
+	b.HomePage() // todo implement homepage
+	data := IndexPageData{
+		Title: "Product Overviews",
+		Head: ui.Head{
+			Lang:            "en",
+			PageTitle:       "Product Overviews",
+			MetaDescription: "Product Overviews Meta",
+		},
+	}
+
 	body, err := ui.Load("index", data)
 	if err != nil {
 		return response.EmptyResponse(), err

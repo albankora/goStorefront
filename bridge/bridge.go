@@ -1,17 +1,6 @@
 package bridge
 
-import "gostorefront/pkg/ui"
-
-type CategoryData struct {
-	Title string
-}
-
-type IndexData struct {
-	Head  ui.Head
-	Title string
-}
-
-type BridgeInterface interface {
+type CommerceBridgeInterface interface {
 	Setup()
 	ProductList()
 	Product()
@@ -24,12 +13,22 @@ type BridgeInterface interface {
 	AddQuantity()
 	RemoveQuantity()
 	AddDeliveryAddress()
-	DeliveryOptions()
-	PaymentMethods()
-	Index() IndexData
-	Category() CategoryData
+	GetDeliveryOptions()
+	AddDeliveryOptions()
+	GetPaymentMethods()
+	Category()
 }
 
-func Setup() BridgeInterface {
+type ContentBridgeInterface interface {
+	Setup()
+	HomePage()
+	Blob()
+}
+
+func CommerceSetup() CommerceBridgeInterface {
 	return Crystallize{name: "crystallize"}
+}
+
+func ContentSetup() ContentBridgeInterface {
+	return Contentful{name: "contentful"}
 }
