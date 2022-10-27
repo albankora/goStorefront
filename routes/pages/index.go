@@ -1,7 +1,7 @@
 package pages
 
 import (
-	"gostorefront/bridge"
+	"gostorefront/bridges"
 	"gostorefront/pkg/response"
 	"gostorefront/pkg/ui"
 )
@@ -12,7 +12,7 @@ type IndexPageData struct {
 }
 
 func Index() (response.Response, error) {
-	b := bridge.ContentSetup()
+	b := bridges.ContentSetup()
 	b.HomePage() // todo implement homepage
 	data := IndexPageData{
 		Title: "Product Overviews",

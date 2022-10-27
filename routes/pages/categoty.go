@@ -1,7 +1,7 @@
 package pages
 
 import (
-	"gostorefront/bridge"
+	"gostorefront/bridges"
 	"gostorefront/pkg/response"
 	"gostorefront/pkg/ui"
 )
@@ -12,7 +12,7 @@ type CategoryPageData struct {
 
 func Category() (response.Response, error) {
 
-	b := bridge.CommerceSetup()
+	b := bridges.CommerceSetup()
 	b.Category()
 	data := CategoryPageData{Title: "Category"}
 	body, err := ui.Load("category", data)

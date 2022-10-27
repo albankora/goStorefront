@@ -1,4 +1,4 @@
-package bridge
+package bridges
 
 type CommerceBridgeInterface interface {
 	Setup()
