@@ -4,7 +4,8 @@
         "awslambda",
         "gostorefront",
         "jsii",
-        "storefront"
+        "storefront",
+        "Contentful"
     ],
     "go.lintOnSave": "package",
     "go.formatTool": "goimports",
