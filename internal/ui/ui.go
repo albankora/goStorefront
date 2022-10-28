@@ -23,7 +23,7 @@ func Load(view string, data interface{}) (string, error) {
 
 	var html bytes.Buffer
 	if err := t.ExecuteTemplate(&html, "base", data); err != nil {
-		log.Fatal(err)
+		log.Panic(err)
 		return "", err
 	}
 

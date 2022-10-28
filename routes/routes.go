@@ -19,7 +19,7 @@ func Handle(URI string) response.Response {
 	res, err := router.Router(URI, routes)
 
 	if err != nil {
-		log.Fatal(err)
+		log.Panic(err)
 	}
 
 	return res

@@ -16,6 +16,6 @@ func (c Contentful) HomePage() {
 	fmt.Println(c.name)
 }
 
-func (c Contentful) Blob() {
+func (c Contentful) Blog() {
 	fmt.Println(c.name)
 }

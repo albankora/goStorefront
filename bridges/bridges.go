@@ -22,7 +22,7 @@ type CommerceBridgeInterface interface {
 type ContentBridgeInterface interface {
 	Setup()
 	HomePage()
-	Blob()
+	Blog()
 }
 
 func CommerceSetup() CommerceBridgeInterface {
