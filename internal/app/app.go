@@ -22,7 +22,7 @@ func HandleRequest(request Request) response.Response {
 
 	fmt.Println(u.Path)
 
-	response := routes.Handle(u.Path)
+	response := routes.Handle(request.Method, u.Path)
 
 	return response
 }

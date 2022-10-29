@@ -22,3 +22,4 @@ lambdaHandler
 lambdaHandler.zip
 
 .DS_Store
+.envrc

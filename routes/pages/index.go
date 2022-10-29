@@ -1,7 +1,7 @@
 package pages
 
 import (
-	"gostorefront/bridges"
+	"gostorefront/connectors"
 	"gostorefront/internal/ui"
 	"gostorefront/pkg/response"
 )
@@ -11,8 +11,8 @@ type IndexPageData struct {
 	Title string
 }
 
-func Index() (response.Response, error) {
-	b := bridges.ContentSetup()
+func Index(args ...string) (response.Response, error) {
+	b := connectors.Connector{Page: "category"}
 	b.HomePage() // todo implement homepage
 	data := IndexPageData{
 		Title: "Product Overviews",

@@ -2,10 +2,12 @@
     "cSpell.words": [
         "awscdk",
         "awslambda",
+        "Contentful",
+        "Ecommerce",
         "gostorefront",
         "jsii",
         "storefront",
-        "Contentful"
+        "Wishlist"
     ],
     "go.lintOnSave": "package",
     "go.formatTool": "goimports",

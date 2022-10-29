@@ -1,18 +1,19 @@
 package pages
 
 import (
-	"gostorefront/bridges"
+	"gostorefront/connectors"
 	"gostorefront/internal/ui"
 	"gostorefront/pkg/response"
 )
 
 type CategoryPageData struct {
+	Head  ui.Head
 	Title string
 }
 
-func Category() (response.Response, error) {
+func Category(args ...string) (response.Response, error) {
 
-	b := bridges.CommerceSetup()
+	b := connectors.Connector{Page: "category"}
 	b.Category()
 	data := CategoryPageData{Title: "Category"}
 	body, err := ui.Load("category", data)
