@@ -22,5 +22,5 @@ func GetCategory(args ...string) (response.Response, error) {
 		return response.InternalServerError(), err
 	}
 
-	return response.Response{Body: body, StatusCode: 200}, err
+	return response.HttpResponse(body, 200), nil
 }

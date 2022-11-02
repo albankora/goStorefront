@@ -11,7 +11,7 @@ type GetIndexPageData struct {
 	Title string
 }
 
-func GetIndex(args ...string) (response.Response, error) {
+func GetIndex() (response.Response, error) {
 	b := connectors.Connector{Page: "category"}
 	b.HomePage() // todo implement homepage
 	data := GetIndexPageData{
@@ -29,5 +29,5 @@ func GetIndex(args ...string) (response.Response, error) {
 		return response.InternalServerError(), err
 	}
 
-	return response.Response{Body: body, StatusCode: 200}, nil
+	return response.HttpResponse(body, 200), nil
 }

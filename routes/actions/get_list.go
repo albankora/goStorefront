@@ -17,5 +17,5 @@ func GetList() (response.Response, error) {
 		return response.InternalServerError(), err
 	}
 
-	return response.Response{Body: body, StatusCode: 200}, nil
+	return response.HttpResponse(body, 200), nil
 }
