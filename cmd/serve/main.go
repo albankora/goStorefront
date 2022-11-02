@@ -1,7 +1,8 @@
 package main
 
 import (
-	"gostorefront/internal/app"
+	"gostorefront/pkg/request"
+	"gostorefront/routes"
 	"io"
 	"log"
 	"net/http"
@@ -15,11 +16,13 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	response := app.HandleRequest(app.Request{
-		Body:   string(body),
-		Path:   r.URL.Path,
-		Method: r.Method,
-	})
+	response := routes.Handle(
+		request.Request{
+			Body:   string(body),
+			Path:   r.URL.Path,
+			Method: r.Method,
+		},
+	)
 
 	w.WriteHeader(response.StatusCode)
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")

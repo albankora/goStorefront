@@ -17,7 +17,10 @@ fmt:
 
 lint:
 	go vet ./...
-	
+
+test:
+	go test ./...
+
 build: 
 	GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o lambdaHandler cmd/lambda/main.go && cd ..
 

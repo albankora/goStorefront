@@ -1,22 +1,22 @@
-package pages
+package actions
 
 import (
 	"gostorefront/connectors"
-	"gostorefront/internal/ui"
 	"gostorefront/pkg/response"
+	"gostorefront/template"
 )
 
-type CategoryPageData struct {
-	Head  ui.Head
+type GetCategoryPageData struct {
+	Head  template.Head
 	Title string
 }
 
-func Category(args ...string) (response.Response, error) {
+func GetCategory(args ...string) (response.Response, error) {
 
 	b := connectors.Connector{Page: "category"}
 	b.Category()
-	data := CategoryPageData{Title: "Category"}
-	body, err := ui.Load("category", data)
+	data := GetCategoryPageData{Title: "Category"}
+	body, err := template.Load("category", data)
 
 	if err != nil {
 		return response.InternalServerError(), err

@@ -7,8 +7,8 @@ import (
 	"strings"
 )
 
-func Router(method string, uri string, routes map[string]interface{}) (response.Response, error) {
-	requestRoute := method + " " + uri
+func Router(path string, routes map[string]interface{}) (response.Response, error) {
+
 	dynamicRoutes := make(map[string]interface{})
 	staticRoutes := make(map[string]interface{})
 	intRegex := "[0-9]*"
@@ -27,8 +27,8 @@ func Router(method string, uri string, routes map[string]interface{}) (response.
 	}
 
 	for key, v := range staticRoutes {
-		if key == requestRoute {
-			return v.(func(...string) (response.Response, error))()
+		if key == path {
+			return v.(func() (response.Response, error))()
 		}
 	}
 
@@ -39,7 +39,7 @@ func Router(method string, uri string, routes map[string]interface{}) (response.
 			log.Panic(err)
 		}
 
-		if pattern.MatchString(requestRoute) {
+		if pattern.MatchString(path) {
 			match := pattern.FindStringSubmatch(intRegex)
 			match = append(match, pattern.FindStringSubmatch(intRegex)...)
 			match = append(match, pattern.FindStringSubmatch(uuidRegex)...)

@@ -1,29 +1,29 @@
-package pages
+package actions
 
 import (
 	"gostorefront/connectors"
-	"gostorefront/internal/ui"
 	"gostorefront/pkg/response"
+	"gostorefront/template"
 )
 
-type IndexPageData struct {
-	Head  ui.Head
+type GetIndexPageData struct {
+	Head  template.Head
 	Title string
 }
 
-func Index(args ...string) (response.Response, error) {
+func GetIndex(args ...string) (response.Response, error) {
 	b := connectors.Connector{Page: "category"}
 	b.HomePage() // todo implement homepage
-	data := IndexPageData{
+	data := GetIndexPageData{
 		Title: "Product Overviews",
-		Head: ui.Head{
+		Head: template.Head{
 			Lang:            "en",
 			PageTitle:       "Product Overviews",
 			MetaDescription: "Product Overviews Meta",
 		},
 	}
 
-	body, err := ui.Load("index", data)
+	body, err := template.Load("index", data)
 
 	if err != nil {
 		return response.InternalServerError(), err

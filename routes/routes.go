@@ -1,34 +1,36 @@
 package routes
 
 import (
+	"gostorefront/pkg/request"
 	"gostorefront/pkg/response"
 	"gostorefront/pkg/router"
-	"gostorefront/routes/pages"
+	"gostorefront/routes/actions"
 	"log"
 )
 
-func Handle(method string, URI string) response.Response {
+func Handle(r request.Request) response.Response {
 
 	routes := map[string]interface{}{
-		"GET /":                  pages.Index,
-		"GET /list/:slug":        pages.List,
-		"GET /categories":        pages.Category,
-		"GET /category/:slug":    pages.Category,
-		"GET /product/:uuid":     pages.Index,
-		"GET /checkout":          pages.Category,
-		"GET /checkout/delivery": pages.List,
-		"GET /checkout/payment":  pages.List,
-		"GET /checkout/summary":  pages.List,
-		"GET /checkout/success":  pages.List,
-		"GET /checkout/error":    pages.List,
-		"GET /account":           pages.Category,
-		"GET /account/login":     pages.Category,
-		"GET /account/register":  pages.List,
-		"GET /account/logout":    pages.List,
-		"GET /account/wishlist":  pages.List,
+		"GET /":                  actions.GetIndex,
+		"GET /list/:slug":        actions.GetList,
+		"GET /categories":        actions.GetCategory,
+		"GET /category/:slug":    actions.GetCategory,
+		"GET /product/:uuid":     actions.GetIndex,
+		"GET /checkout":          actions.GetCategory,
+		"GET /checkout/delivery": actions.GetList,
+		"GET /checkout/payment":  actions.GetList,
+		"GET /checkout/summary":  actions.GetList,
+		"GET /checkout/success":  actions.GetList,
+		"GET /checkout/error":    actions.GetList,
+		"GET /account":           actions.GetCategory,
+		"GET /account/login":     actions.GetCategory,
+		"GET /account/register":  actions.GetList,
+		"GET /account/logout":    actions.GetList,
+		"GET /account/wishlist":  actions.GetList,
 	}
 
-	res, err := router.Router(method, URI, routes)
+	path, _ := r.RequestPath()
+	res, err := router.Router(path, routes)
 
 	if err != nil {
 		log.Panic(err)
