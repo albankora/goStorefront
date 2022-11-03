@@ -23,7 +23,7 @@ func GetIndex() (response.Response, error) {
 		},
 	}
 
-	body, err := template.Load("index", data)
+	body, err := template.Load("homepage", data)
 
 	if err != nil {
 		return response.InternalServerError(), err

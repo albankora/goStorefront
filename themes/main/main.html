@@ -2,12 +2,13 @@
 <!doctype html>
 <html lang="{{.Head.Lang}}">
 {{template "head" .}}
+
 <body>
-    {{template "header" .}}
-    <div class="relative mx-auto w-full max-w-container px-4 sm:px-6 lg:px-8">
+    <div class="container">
+        {{template "header" .}}
         {{template "content" .}}
+        {{template "footer" .}}
     </div>
-    {{template "footer" .}}
 </body>
 
 </html>{{end}}

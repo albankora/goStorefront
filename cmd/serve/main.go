@@ -35,6 +35,9 @@ func main() {
 		handler(w, r)
 	})
 
+	fileHandler := http.StripPrefix("/static/", http.FileServer(http.Dir("./static")))
+	mux.Handle("/static/", fileHandler)
+
 	log.Print("Starting server on http://localhost:4000")
 	err := http.ListenAndServe(":4000", mux)
 	log.Fatal(err)

@@ -13,7 +13,7 @@ type Head struct {
 }
 
 func Load(page string, data interface{}) (string, error) {
-	theme := "example"
+	theme := "main"
 	content := "themes/" + theme + "/pages/" + page + ".html"
 	layout := "themes/" + theme + "/" + theme + ".html"
 	header := "themes/" + theme + "/partials/header.html"
@@ -23,7 +23,7 @@ func Load(page string, data interface{}) (string, error) {
 	t, _ := template.ParseFiles(content, layout, header, footer, head)
 
 	var html bytes.Buffer
-	if err := t.ExecuteTemplate(&html, "base", data); err != nil {
+	if err := t.ExecuteTemplate(&html, theme, data); err != nil {
 		log.Panic(err)
 		return "", err
 	}
