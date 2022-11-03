@@ -12,15 +12,15 @@ type Head struct {
 	MetaDescription string
 }
 
-func Load(view string, data interface{}) (string, error) {
-	theme := "base"
-	file := "themes/" + theme + "/pages/" + view + ".html"
-	layout := "themes/" + theme + "/layouts/base.html"
+func Load(page string, data interface{}) (string, error) {
+	theme := "example"
+	content := "themes/" + theme + "/pages/" + page + ".html"
+	layout := "themes/" + theme + "/" + theme + ".html"
 	header := "themes/" + theme + "/partials/header.html"
 	footer := "themes/" + theme + "//partials/footer.html"
 	head := "themes/" + theme + "/partials/head.html"
 
-	t, _ := template.ParseFiles(file, layout, header, footer, head)
+	t, _ := template.ParseFiles(content, layout, header, footer, head)
 
 	var html bytes.Buffer
 	if err := t.ExecuteTemplate(&html, "base", data); err != nil {
